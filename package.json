@@ -23,6 +23,7 @@
         "dotenv": "^5.0.1",
         "hapi": "^16.6.3",
         "hapi-postgres-connection": "^6.5.0",
-        "hapi-router": "^3.5.0"
+        "hapi-router": "^3.5.0",
+        "joi": "^13.1.2"
     }
 }
