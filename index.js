@@ -23,3 +23,4 @@ server.register([{
 server.start(function() {
     console.log('Server running on: ', server.info.uri);
 });
+module.exports = server;

@@ -4,7 +4,8 @@
     "description": "Mi primer código NODEJS",
     "main": "index.js",
     "scripts": {
-        "start": "node index.js"
+        "start": "node index.js",
+        "test": "lab -c"
     },
     "repository": {
         "type": "git",
@@ -25,5 +26,9 @@
         "hapi-postgres-connection": "^6.5.0",
         "hapi-router": "^3.5.0",
         "joi": "^13.1.2"
+    },
+    "devDependencies": {
+        "code": "^5.2.0",
+        "lab": "^14.3.4"
     }
 }
