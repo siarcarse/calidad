@@ -4,25 +4,52 @@ const server = require('../index');
 const lab = exports.lab = Lab.script();
 
 lab.experiment('Users', function() {
-    lab.test('Evaluar ruta /api/users por GET = status 200', (done) => {
+    lab.test("Probando GET /API/USERS STATUS 200 Y cantidad de datos 3", function(done) {
         var options = {
-            method: 'GET',
-            url: '/api/users'
+            method: "GET",
+            url: "/api/users"
         };
+
         server.inject(options, function(response) {
-            const result = response.result;
+            var result = response.result;
             code.expect(response.statusCode).to.equal(200);
             code.expect(result).to.be.instanceof(Array);
+            code.expect(result).to.have.length(3);
             done();
         });
     });
-    lab.test('Evaluar POST /api/users sin datos = status 400', (done) => {
-        const options = {
-            method: 'POST',
-            url: '/api/users'
+    lab.test("Probando POST /API/USERS Con Todos los Datos STATUS 200 Y RESPUESTA", function(done) {
+        var options = {
+            method: "POST",
+            url: "/api/users",
+            payload: {
+                name: 'testing',
+                lastname: 'Hapi',
+                birthdate: '2018-04-01'
+            }
         };
+
         server.inject(options, function(response) {
-            code.expect(response.statusCode).to.equal(400);
+            var result = response.result;
+            code.expect(response.statusCode).to.equal(200);
+            code.expect(result).to.contain(['id', 'nombre', 'apellido']);
+            done();
+        });
+    });
+
+    lab.test("Probando DELETE /API/USERS STATUS 200 Y RESPUESTA", function(done) {
+        var options = {
+            method: "DELETE",
+            url: "/api/users",
+            payload: {
+                name: 'testing'
+            }
+        };
+
+        server.inject(options, function(response) {
+            var result = response.result;
+            code.expect(response.statusCode).to.equal(200);
+            code.expect(result).to.part.include({ deleted: true });
             done();
         });
     });
