@@ -1,36 +1,32 @@
--- Sequence: public.products_pk_seq
+-- Sequence: public.patient_pk_seq
 
--- DROP SEQUENCE public.products_pk_seq;
+-- DROP SEQUENCE public.patient_pk_seq;
 
-CREATE SEQUENCE public.products_pk_seq
-INCREMENT 1
+CREATE SEQUENCE public.patient_pk_seq
+  INCREMENT 1
   MINVALUE 1
   MAXVALUE 9223372036854775807
   START 1
   CACHE 1;
-ALTER TABLE public.products_pk_seq
-  OWNER TO siarcarse;
+ALTER TABLE public.patient_pk_seq
+  OWNER TO postgres;
 
 
+-- Table: public.patient
 
--- Table: public.products
+-- DROP TABLE public.patient;
 
--- DROP TABLE public.products;
-
-CREATE TABLE public.products
+CREATE TABLE public.patient
 (
-    pk integer NOT NULL DEFAULT nextval('products_pk_seq'
-    ::regclass),
-  name character varying,
-  code character varying,
-  price integer,
-  active boolean,
-  CONSTRAINT pkey PRIMARY KEY
-    (pk)
+  pk integer NOT NULL DEFAULT nextval('patient_pk_seq'::regclass),
+  name character varying NOT NULL,
+  lastname character varying,
+  email character varying,
+  birthdate timestamp without time zone,
+  CONSTRAINT patient_pkey PRIMARY KEY (pk)
 )
-    WITH
-    (
+WITH (
   OIDS=FALSE
 );
-    ALTER TABLE public.products
-  OWNER TO siarcarse;
+ALTER TABLE public.patient
+  OWNER TO postgres;
