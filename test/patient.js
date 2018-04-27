@@ -1,4 +1,4 @@
-var Lab = require("lab");
+/* var Lab = require("lab");
 var lab = exports.lab = Lab.script();
 var server = require("../index.js")
 var code = require("code");
@@ -137,3 +137,4 @@ lab.experiment("Patient", function() {
         });
     });
 });
+ */

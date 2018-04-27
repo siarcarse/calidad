@@ -1,4 +1,4 @@
-var Lab = require("lab");
+/* var Lab = require("lab");
 var lab = exports.lab = Lab.script();
 var server = require("../index.js")
 var code = require("code");
@@ -31,7 +31,6 @@ lab.experiment("Products", function() {
         code.expect(Routes[3].config.validate).to.be.instanceof(Object);
         done();
     });
-    /* DESDE AQUÍ LO NUEVO */
     lab.test("Probando POST /API/PRODUCTS Con Todos los Datos STATUS 200 Y RESPUESTA", function(done) {
         var options = {
             method: "POST",
@@ -83,5 +82,4 @@ lab.experiment("Products", function() {
             done();
         });
     });
-    /* HASTA AQUÍ LO NUEVO */
-});
+}); */

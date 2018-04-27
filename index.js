@@ -1,5 +1,6 @@
 const Hapi = require('hapi');
 const dotenv = require('dotenv');
+const inert = require('inert');
 
 dotenv.load();
 const server = new Hapi.Server();
@@ -14,6 +15,8 @@ server.register([{
     }
 }, {
     register: require('hapi-postgres-connection')
+}, {
+    register: inert
 }], function(err) {
     if (err) {
         console.log('Error cargando un modulo');

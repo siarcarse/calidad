@@ -1,4 +1,4 @@
-const Lab = require('lab');
+/* const Lab = require('lab');
 const code = require('code');
 const server = require('../index');
 const lab = exports.lab = Lab.script();
@@ -53,4 +53,4 @@ lab.experiment('Users', function() {
             done();
         });
     });
-});
+}); */
