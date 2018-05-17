@@ -1,32 +1,34 @@
--- Sequence: public.patient_pk_seq
+-- Sequence: public.personas_pk_seq
 
--- DROP SEQUENCE public.patient_pk_seq;
+-- DROP SEQUENCE public.personas_pk_seq;
 
-CREATE SEQUENCE public.patient_pk_seq
-  INCREMENT 1
+CREATE SEQUENCE public.personas_pk_seq
+INCREMENT 1
   MINVALUE 1
   MAXVALUE 9223372036854775807
-  START 1
+  START 2
   CACHE 1;
-ALTER TABLE public.patient_pk_seq
+ALTER TABLE public.personas_pk_seq
   OWNER TO postgres;
 
 
--- Table: public.patient
+-- Table: public.personas
 
--- DROP TABLE public.patient;
+-- DROP TABLE public.personas;
 
-CREATE TABLE public.patient
+CREATE TABLE public.personas
 (
-  pk integer NOT NULL DEFAULT nextval('patient_pk_seq'::regclass),
-  name character varying NOT NULL,
+  name character varying,
   lastname character varying,
-  email character varying,
-  birthdate timestamp without time zone,
-  CONSTRAINT patient_pkey PRIMARY KEY (pk)
+  birthdate timestamp
+  without time zone,
+  active boolean,
+  pk integer NOT NULL DEFAULT nextval
+  ('personas_pk_seq'::regclass)
 )
-WITH (
+  WITH
+  (
   OIDS=FALSE
 );
-ALTER TABLE public.patient
+  ALTER TABLE public.personas
   OWNER TO postgres;
